@@ -59,14 +59,28 @@ class KegControl extends React.Component {
     });
   }
   handleSellClick = (id) => {
-    console.log(id);
     let kegToSell = this.state.masterKegList.filter(
       keg => keg.id === id)[0];
+      if(kegToSell.pintsleft == 0){
+        alert("All Sold Out Boss")
+      } else {
       kegToSell.pintsLeft = kegToSell.pintsLeft -1;
-      console.log(kegToSell)
-    this.setState({
-      selectedKeg: kegToSell
-    })
+      this.setState({
+        selectedKeg: kegToSell
+      })
+    }
+  }
+  handleStockClick = (id) => {
+    let kegToStock = this.state.masterKegList.filter(
+      keg => keg.id === id)[0];
+      if(kegToStock.pintsLeft >= 120){
+        alert("This Keg Is Full Boss")
+      } else {
+      kegToStock.pintsLeft = kegToStock.pintsLeft +1;
+      this.setState({
+        selectedKeg: kegToStock
+      })
+    }
   }
   viewKegList = () => {
     if(this.state.masterKegList.length == 0){
@@ -88,12 +102,13 @@ class KegControl extends React.Component {
       currentState = <AddKeg onNewKegCreation={this.handleAddingNewKegToList}/>
       buttonText = "View Keg List"
     } else if(this.state.selectedKeg != null) {
-      currentState = <KegDetail keg = {this.state.selectedKeg} onClickingSell={this.handleSellClick} onClickingDelete = {this.handleDeleteClick} onClickingEdit = {this.handleEditClick} />
-      buttonText = "View Keg List"
-    } else if (this.state.kegFormVisible != true){
+      currentState = <KegDetail keg = {this.state.selectedKeg} onClickingStock={this.handleStockClick} onClickingSell={this.handleSellClick} onClickingDelete = {this.handleDeleteClick} onClickingEdit = {this.handleEditClick} />
+      buttonText = "Add a Keg"
+    }else 
+    // } else (this.state.kegFormVisible != true){
       currentState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg} />
       buttonText = "Add a Keg"
-    }
+
     return (
       <>
         {currentState}

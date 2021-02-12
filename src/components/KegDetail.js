@@ -5,7 +5,7 @@ import { Button, Card, CardHeader, CardBody, CardFooter } from 'reactstrap';
 
 
 function KegDetail(props){
-  const { keg, onClickingDelete, onClickingEdit, onClickingSell } = props;
+  const { keg, onClickingDelete, onClickingEdit, onClickingSell, onClickingStock } = props;
   const styleBody = {
     backgroundColor: "#d6dc72",
     borderRadius: 10,
@@ -31,7 +31,7 @@ function KegDetail(props){
         <Button onClick={()=> onClickingDelete(keg.id)}>Delete This keg</Button>
         <Button onClick={()=> onClickingEdit(keg.id)}>Edit This Keg</Button>
         <Button onClick={()=> onClickingSell(keg.id)}>Sell One Pint</Button>
-        {/* <Button onClick={()=> onClickingStock()}>Stock One Pint</Button> */}
+        <Button onClick={()=> onClickingStock(keg.id)}>Stock One Pint</Button>
         <hr/>
       </CardFooter>
     </Card>
