@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function ReusableForm(props) {
-  console.log(props.formSubmissionHandler);
   return (
     <>
       <form onSubmit={props.formSubmissionHandler}>
@@ -18,7 +17,6 @@ function ReusableForm(props) {
         <br />
         <label>Price</label>
         <input type="number" name="price" placeholder="Price"></input>
-        <br />
         <br />
         <label>Price</label>
         <input type="string" name="flavor" placeholder="Flavor"></input>

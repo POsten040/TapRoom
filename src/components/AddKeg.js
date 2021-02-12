@@ -5,9 +5,9 @@ import ReusableForm from './ReusableForm';
 
 function AddKeg(props) {
 
-  function handleNewProductFormSubmission(e) {
+  function handleNewKegFormSubmission(e) {
     e.preventDefault();
-    props.onNewProductCreation({
+    props.onNewKegCreation({
       name: e.target.name.value,
       brand: e.target.brand.value,
       price: e.target.price.value,
@@ -22,14 +22,14 @@ function AddKeg(props) {
   return (
     <>
       <ReusableForm
-        formSubmissionHandler={handleNewProductFormSubmission}
+        formSubmissionHandler={handleNewKegFormSubmission}
         buttonText="Add to Cart"/>
     </>
   );
 }
 
 AddKeg.propTypes = {
-  onNewProductCreation: PropTypes.func
+  onNewKegCreation: PropTypes.func
 };
 
 export default AddKeg;

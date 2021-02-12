@@ -2,10 +2,11 @@ import SplashPage from './SplashPage';
 import KegControl from './KegControl';
 
 function App() {
+  const style = {
+    
+  }
   return (
     <>
-      <SplashPage />
-      <hr/>
       <KegControl />
     </>
   );

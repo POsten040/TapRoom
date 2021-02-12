@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Card from 'react-bootstrap/Card';
 
-function Product(props){
+function Keg(props){
   return (
     <>
       <div onClick = {() => props.whenProductClicked(props.id)}>
@@ -20,7 +20,7 @@ function Product(props){
 Keg.propTypes = {
   name: PropTypes.string.isRequired,
   brand: PropTypes.string.isRequired,
-  price: PropTypes.int.isRequired,
+  price: PropTypes.number.isRequired,
   flavor: PropTypes.string.isRequired
 };
 
