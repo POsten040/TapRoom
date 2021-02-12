@@ -31,6 +31,7 @@ class KegControl extends React.Component {
   }
   handleAddingNewKegToList = (newKeg) =>{
     console.log(newKeg);
+    console.log(this.state.masterKegList);
     const newMasterKegList = this.state.masterKegList.concat(newKeg);
     // const newMasterKegList = [...this.state.masterKegList, newKeg];
     this.setState({
@@ -45,7 +46,8 @@ class KegControl extends React.Component {
       currentState = <SplashPage />
       buttonText = "Get Started"
     } else if(this.state.kegFormVisible){
-      
+      console.log(currentState);
+      console.log(this.state.masterKegList);
       currentState = <AddKeg onNewKegCreation={this.handleAddingNewKegToList}/>
       buttonText = "View Keg List"
     } else {

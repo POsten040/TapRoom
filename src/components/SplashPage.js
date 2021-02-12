@@ -1,6 +1,6 @@
 import React from 'react';
 import { CardImg } from 'react-bootstrap';
-import {Button, Card, CardBody, CardTitle} from "reactstrap";
+import {Card, CardBody, CardTitle} from "reactstrap";
 
 
 function SplashPage(){
