@@ -5,12 +5,13 @@ import Card from 'react-bootstrap/Card';
 function Keg(props){
   return (
     <>
-      <div onClick = {() => props.whenProductClicked(props.id)}>
+      <div onClick = {() => props.whenKegClicked(props.id)}>
         <h4>{props.name}</h4>
           <div className="inner-div">
             <p>{props.brand}</p>
             <p>{props.price}</p>
             <p>{props.flavor}</p>
+            <p>{props.pintsLeft}</p>
           </div>
           <hr/>
       </div>
@@ -21,7 +22,8 @@ Keg.propTypes = {
   name: PropTypes.string.isRequired,
   brand: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  flavor: PropTypes.string.isRequired
+  flavor: PropTypes.string.isRequired,
+  pintsLeft: PropTypes.number
 };
 
 export default Keg;

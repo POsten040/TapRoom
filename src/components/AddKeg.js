@@ -12,6 +12,7 @@ function AddKeg(props) {
       brand: e.target.brand.value,
       price: e.target.price.value,
       flavor: e.target.flavor.value,
+      pintsLeft: e.target.pintsLeft.value,
       id: v4()
     })
   }

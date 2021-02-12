@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'reactstrap';
 
 function ReusableForm(props) {
   return (
@@ -20,7 +21,8 @@ function ReusableForm(props) {
         <br />
         <label>Price</label>
         <input type="string" name="flavor" placeholder="Flavor"></input>
-        <button type="submit">{props.buttonText}</button>
+        <input type="hidden" name="pintsLeft" value="120"></input>
+        <Button id="formSubmitButton" className="btn" type="submit">{props.buttonText}</Button>
       </form>
     </>
   );
