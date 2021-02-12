@@ -4,7 +4,7 @@ import KegList from './KegList';
 import AddKeg from './AddKeg';
 import EditKeg from './EditKeg';
 import KegDetail from './KegDetail';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 class KegControl extends React.Component {
   constructor(props){
@@ -18,6 +18,7 @@ class KegControl extends React.Component {
       editing: false
     }
   }
+  
   handleClick = () => {
     if(this.state.splashPageVisible){
       this.setState({
@@ -34,8 +35,25 @@ class KegControl extends React.Component {
       this.setState(prevState => ({
         editing: !prevState.editing
       }))
-    } else {
+    } else if(this.state.kegListVisible && this.state.selectedKeg === null){
       this.viewKegList();
+    } else if (this.state.selectedKeg != null){
+      this.setState({
+        kegListVisible: true,
+        kegFormVisible: false,
+        selectedKeg:null
+      })
+    }
+  }
+  viewKegList= () => {
+    if(this.state.masterKegList.length == 0){
+      alert("No Kegs Yet!");
+    } else {
+      this.setState({
+        kegListVisible: false,
+        kegFormVisible: true,
+        selectedKeg: null
+      })
     }
   }
   handleEditClick = () => {
@@ -59,13 +77,12 @@ class KegControl extends React.Component {
       selectedKeg: null});
   }
   handleAddingNewKegToList = (newKeg) =>{
-    console.log(newKeg);
-    console.log(this.state.masterKegList);
     const newMasterKegList = this.state.masterKegList.concat(newKeg);
     // const newMasterKegList = [...this.state.masterKegList, newKeg];
     this.setState({
       masterKegList: newMasterKegList, 
-      kegFormVisible: false
+      kegFormVisible: false,
+      kegListVisible: true
     })
   }
   handleChangingSelectedKeg = (id) => {
@@ -101,16 +118,6 @@ class KegControl extends React.Component {
       })
     }
   }
-  viewKegList= () => {
-    if(this.state.masterKegList.length == 0){
-      alert("No Kegs Yet!");
-    } else {
-      this.setState({
-        kegListVisible: true,
-        selectedKeg: null
-      })
-    }
-  }
   render() {
     let currentState = null;
     let buttonText = null;
@@ -118,15 +125,43 @@ class KegControl extends React.Component {
       currentState = <SplashPage />
       buttonText = "Get Started"
     } else if (this.state.editing === true){
+      console.log("master list" + ": " + this.state.masterKegList)
+      console.log("keg form visible" + ": " + this.state.kegFormVisible)
+      console.log("Keg list visible" + ": " + this.state.kegListVisible)
+      console.log("editing" + ": " + this.state.editing)
+      console.log("selected Keg" + ": " + this.state.selectedKeg)
       currentState = <EditKeg keg = {this.state.selectedKeg} onClickingEdit = {this.handleEditingKegInList} />
       buttonText = "return"
     } else if(this.state.selectedKeg != null) {
+      console.log("master list" + ": " + this.state.masterKegList)
+  console.log("keg form visible" + ": " + this.state.kegFormVisible)
+  console.log("Keg list visible" + ": " + this.state.kegListVisible)
+  console.log("editing" + ": " + this.state.editing)
+  console.log("selected Keg" + ": " + this.state.selectedKeg)
       currentState = <KegDetail keg = {this.state.selectedKeg} onClickingStock={this.handleStockClick} onClickingSell={this.handleSellClick} onClickingDelete = {this.handleDeleteClick} onClickingEdit = {this.handleEditClick} />
       buttonText= "View Keg List"
     } else if(this.state.kegFormVisible){
+      console.log("master list" + ": " + this.state.masterKegList)
+  console.log("keg form visible" + ": " + this.state.kegFormVisible)
+  console.log("Keg list visible" + ": " + this.state.kegListVisible)
+  console.log("editing" + ": " + this.state.editing)
+  console.log("selected Keg" + ": " + this.state.selectedKeg)
       currentState = <AddKeg onNewKegCreation={this.handleAddingNewKegToList}/>
       buttonText = "View Keg List"
     } else if(this.state.kegListVisible){
+      console.log("master list" + ": " + this.state.masterKegList)
+  console.log("keg form visible" + ": " + this.state.kegFormVisible)
+  console.log("Keg list visible" + ": " + this.state.kegListVisible)
+  console.log("editing" + ": " + this.state.editing)
+  console.log("selected Keg" + ": " + this.state.selectedKeg)
+      currentState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>
+      buttonText = "Customize a Keg"
+    } else {
+      console.log("master list" + ": " + this.state.masterKegList)
+  console.log("keg form visible" + ": " + this.state.kegFormVisible)
+  console.log("Keg list visible" + ": " + this.state.kegListVisible)
+  console.log("editing" + ": " + this.state.editing)
+  console.log("selected Keg" + ": " + this.state.selectedKeg)
       currentState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>
       buttonText = "Customize a Keg"
     }
