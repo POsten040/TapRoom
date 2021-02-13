@@ -17,14 +17,13 @@ function AddKeg(props) {
     })
   }
 
+
   return (
     <>
-      <div className="centered">
-      <ReusableForm
-        formSubmissionHandler={handleNewKegFormSubmission}
-        buttonText="Add this Keg"
-        buttonStyle={props.buttonStyle}/>
-      </div>
+    <ReusableForm
+      formSubmissionHandler={handleNewKegFormSubmission}
+      buttonText="Add this Keg"
+      buttonStyle={props.buttonStyle}/>
     </>
   );
 }

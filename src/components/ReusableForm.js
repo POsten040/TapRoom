@@ -4,13 +4,17 @@ import { Button } from 'reactstrap';
 
 function ReusableForm(props) {
   const formStyle= {
-    backgroundColor: "#33c4cc",
+    backgroundColor: "#999b64",
     borderRadius: 10,
-    width: 600
+    width: 600,
+    padding: 10
+  }
+  const greenButton = {
+    backgroundColor: '#2fd05a',
   }
   return (
     <>
-      <div className="centered">
+      <div>
         <form style={formStyle} onSubmit={props.formSubmissionHandler}>
           <label>Keg Name</label>
           <input type="text" name="name" placeholder="Name"></input>
@@ -31,7 +35,7 @@ function ReusableForm(props) {
           <label>Stock(in pints)</label>
           <input type="number" name="pintsLeft" defaultValue="120"></input>
           <br />
-          <Button style={props.buttonStyle} id="formSubmitButton" className="btn" type="submit">{props.buttonText}</Button>
+          <Button style={greenButton} id="formSubmitButton" className="btn" type="submit">{props.buttonText}</Button>
         </form>
       </div>
     </>

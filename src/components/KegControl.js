@@ -5,6 +5,13 @@ import AddKeg from './AddKeg';
 import EditKeg from './EditKeg';
 import KegDetail from './KegDetail';
 import { Button } from 'reactstrap';
+import { Animate } from 'react-simple-animate';
+import nicebar from '../assets/nicebar.jpg';
+import nicebar2 from '../assets/nicebar2.jpg';
+import nicebar3 from '../assets/nicebar3.jpg';
+import nicebar4 from '../assets/nicebar4.jpg';
+import nicebar5 from '../assets/nicebar5.jpg';
+import nicebar6 from '../assets/nicebar6.jpg';
 
 class KegControl extends React.Component {
   constructor(props){
@@ -113,8 +120,10 @@ class KegControl extends React.Component {
   handleSellClick = (id) => {
     let kegToSell = this.state.masterKegList.filter(
       keg => keg.id === id)[0];
-      if(kegToSell.pintsleft == 0){
-        alert("All Sold Out Boss")
+      console.log(kegToSell.pintsLeft)
+      if(kegToSell.pintsLeft <= 0){
+        console.log("sold out")
+        alert("All Sold Out Boss");
       } else {
       kegToSell.pintsLeft = kegToSell.pintsLeft -1;
       this.setState({
@@ -126,7 +135,7 @@ class KegControl extends React.Component {
     let kegToStock = this.state.masterKegList.filter(
       keg => keg.id === id)[0];
       if(kegToStock.pintsLeft >= 120){
-        alert("This Keg Is Full Boss")
+        alert("This Keg Is Full Boss");
       } else {
       kegToStock.pintsLeft = kegToStock.pintsLeft +1;
       this.setState({
@@ -134,55 +143,124 @@ class KegControl extends React.Component {
       })
     }
   }
+  randomNumber(){
+    return Math.floor(Math.random() * 5);
+  }
   
   render() {
     const yellowButton = {
       backgroundColor: "#33c4cc",
     }
     const blueButton = {
-      backgroundColor: "#88b035",
+      backgroundColor: "#2ebad1",
     }
-    let buttonStyle = null
+    const greyButton = {
+      backgroundColor: '#79867f',
+    }
+    let backgroundImageArray = [
+      {
+        backgroundImage: `url(${nicebar})`,
+        height: "800px",
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
+      },
+      {
+        backgroundImage: `url(${nicebar2})`,
+        height: "800px",
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
+      },
+      {
+        backgroundImage: `url(${nicebar3})`,
+        height: "800px",
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
+      },
+      {
+        backgroundImage: `url(${nicebar4})`,
+        height: "800px",
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
+      },
+      {
+        backgroundImage: `url(${nicebar5})`,
+        height: "800px",
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
+      },
+      {
+        backgroundImage: `url(${nicebar6})`,
+        height: "800px",
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover'
+      }
+    ]
+    let backgroundImage = null;
+    let buttonStyle = null;
     let currentState = null;
     let buttonText = null;
     if(this.state.splashPageVisible){
       
-      currentState = <SplashPage />
-      buttonText = "Get Started"
+      currentState = <SplashPage buttonStyle={buttonStyle}/>
+      buttonText = "Get Started";
+      buttonStyle=yellowButton;
     } else if (this.state.editing === true){
       // console.log("FORM" + " : " + this.state.kegFormVisible);
       // console.log("List" + " : " + this.state.kegListVisible);
       // console.log("edit" + " : " + this.state.editing);
       // console.log("selected" + " : " + this.state.selectedKeg);
-      currentState = <EditKeg keg = {this.state.selectedKeg} onClickingEdit = {this.handleEditingKegInList} />
-      buttonText = "Go Back"
+      currentState = <EditKeg keg = {this.state.selectedKeg} buttonStyle={buttonStyle} onClickingEdit = {this.handleEditingKegInList} />
+      buttonText = "Go Back";
+      buttonStyle= greyButton;
+      backgroundImage = backgroundImageArray[this.randomNumber()];
     } else if(this.state.selectedKeg != null) {
     
       
-      currentState = <KegDetail keg = {this.state.selectedKeg} onClickingStock={this.handleStockClick} onClickingSell={this.handleSellClick} onClickingDelete = {this.handleDeleteClick} onClickingEdit = {this.handleEditClick} />
+      currentState = <KegDetail keg = {this.state.selectedKeg}  onClickingStock={this.handleStockClick} onClickingSell={this.handleSellClick} onClickingDelete = {this.handleDeleteClick} onClickingEdit = {this.handleEditClick} />
       buttonText= "View Keg List";
+      buttonStyle=blueButton;
+      backgroundImage = backgroundImageArray[this.randomNumber()];
     } else if(this.state.kegFormVisible){
       
-      currentState = <AddKeg onNewKegCreation={this.handleAddingNewKegToList} buttonStyle={yellowButton}/>
+      currentState = <AddKeg onNewKegCreation={this.handleAddingNewKegToList} buttonStyle={buttonStyle}/>
       buttonText = "View Keg List";
-      buttonStyle=yellowButton;
+      buttonStyle=blueButton;
+      backgroundImage = backgroundImageArray[this.randomNumber()];
     } else if(this.state.kegListVisible){
       
-      currentState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>
-      buttonText = "Customize a Keg";
+      currentState = <KegList kegList={this.state.masterKegList}  onKegSelection={this.handleChangingSelectedKeg}/>
+      buttonText = "Add Another Keg";
       buttonStyle = blueButton;
+      backgroundImage = backgroundImageArray[this.randomNumber()];
     } else {
       
-      currentState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>
-      buttonText = "Customize a Keg";
+      currentState = <KegList kegList={this.state.masterKegList}  onKegSelection={this.handleChangingSelectedKeg}/>
+      buttonText = "Add Another Keg";
       buttonStyle = blueButton;
+      backgroundImage = backgroundImageArray[this.randomNumber()];
     }
-
     return (
       <>
-        {currentState}
-        <Button style={buttonStyle} className="btn" onClick={this.handleClick}>{buttonText}</Button>
-        {/* <Button className="btn" onClick={this.viewKegList}>See Kegs</Button> */}
+      <div style={backgroundImage} >
+        <div className="centered">
+          {currentState}
+          <Animate
+              play={true}
+              duration={1}
+              delay={.1}
+              start={{transform: 'translate(0,-200px)'}}
+              end={{transform: 'translate(0, 0)'}}
+              >
+              <Button style={buttonStyle} className="btn" onClick={this.handleClick}>{buttonText}</Button>
+          </Animate>
+        </div>
+      </div>
       </>
     )
   }

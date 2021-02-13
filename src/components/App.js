@@ -4,9 +4,7 @@ function App() {
   
   return (
     <>
-      <div className="centered">
-        <KegControl />
-      </div>
+      <KegControl />
     </>
   );
 }
