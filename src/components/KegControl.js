@@ -146,50 +146,32 @@ class KegControl extends React.Component {
     let currentState = null;
     let buttonText = null;
     if(this.state.splashPageVisible){
-      console.log("FORM" + " : " + this.state.kegFormVisible);
-      console.log("List" + " : " + this.state.kegListVisible);
-      console.log("edit" + " : " + this.state.editing);
-      console.log("selected" + " : " + this.state.selectedKeg);
+      
       currentState = <SplashPage />
       buttonText = "Get Started"
     } else if (this.state.editing === true){
-      console.log("FORM" + " : " + this.state.kegFormVisible);
-      console.log("List" + " : " + this.state.kegListVisible);
-      console.log("edit" + " : " + this.state.editing);
-      console.log("selected" + " : " + this.state.selectedKeg);
+      // console.log("FORM" + " : " + this.state.kegFormVisible);
+      // console.log("List" + " : " + this.state.kegListVisible);
+      // console.log("edit" + " : " + this.state.editing);
+      // console.log("selected" + " : " + this.state.selectedKeg);
       currentState = <EditKeg keg = {this.state.selectedKeg} onClickingEdit = {this.handleEditingKegInList} />
       buttonText = "Go Back"
     } else if(this.state.selectedKeg != null) {
-      console.log("FORM" + " : " + this.state.kegFormVisible);
-      console.log("List" + " : " + this.state.kegListVisible);
-      console.log("edit" + " : " + this.state.editing);
-      console.log("selected" + " : " + this.state.selectedKeg);
+    
       
       currentState = <KegDetail keg = {this.state.selectedKeg} onClickingStock={this.handleStockClick} onClickingSell={this.handleSellClick} onClickingDelete = {this.handleDeleteClick} onClickingEdit = {this.handleEditClick} />
       buttonText= "View Keg List";
     } else if(this.state.kegFormVisible){
-      console.log("FORM" + " : " + this.state.kegFormVisible);
-      console.log("List" + " : " + this.state.kegListVisible);
-      console.log("edit" + " : " + this.state.editing);
-      console.log("selected" + " : " + this.state.selectedKeg);
       
-      currentState = <AddKeg onNewKegCreation={this.handleAddingNewKegToList}/>
+      currentState = <AddKeg onNewKegCreation={this.handleAddingNewKegToList} buttonStyle={yellowButton}/>
       buttonText = "View Keg List";
       buttonStyle=yellowButton;
     } else if(this.state.kegListVisible){
-      console.log("FORM" + " : " + this.state.kegFormVisible);
-      console.log("List" + " : " + this.state.kegListVisible);
-      console.log("edit" + " : " + this.state.editing);
-      console.log("selected" + " : " + this.state.selectedKeg);
       
       currentState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>
       buttonText = "Customize a Keg";
       buttonStyle = blueButton;
     } else {
-      console.log("FORM" + " : " + this.state.kegFormVisible);
-      console.log("List" + " : " + this.state.kegListVisible);
-      console.log("edit" + " : " + this.state.editing);
-      console.log("selected" + " : " + this.state.selectedKeg);
       
       currentState = <KegList kegList={this.state.masterKegList} onKegSelection={this.handleChangingSelectedKeg}/>
       buttonText = "Customize a Keg";

@@ -16,16 +16,15 @@ function AddKeg(props) {
       id: v4()
     })
   }
-  const styledForm = {
-
-  }
 
   return (
     <>
+      <div className="centered">
       <ReusableForm
         formSubmissionHandler={handleNewKegFormSubmission}
         buttonText="Add this Keg"
         buttonStyle={props.buttonStyle}/>
+      </div>
     </>
   );
 }

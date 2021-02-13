@@ -11,27 +11,29 @@ function SplashPage(){
   const imageSize = {
     width: 200,
   }
+  const header = {
+    width: 800,
+    fontFamily: 'Modak',
+    fontSize: 'xx-large'
+    }
   return (
     
   <>
-  
-    <Card>
-      <CardBody>
-        <CardTitle id="splashPageGreet" ><Jumbotron>Welcome to the best Damme TapRoom in Town</Jumbotron></CardTitle>
-        <div styles={{ backgroundImage:`url(${rainbow})` }}>
-
-          <Animate
-          play={true}
-          duration={1.5}
-          delay={.1}
-          start={{transform: 'translate(0,0px)'}}
-          end={{transform: 'translate(900px, 0)'}}
-          >
-            <img src={JCVD} style={imageSize} alt="Jean Claude Van Damme"/>
-          </Animate>
-        </div>
-      </CardBody>
-    </Card>
+  <Animate
+    play={true}
+    duration={1.5}
+    delay={.1}
+    start={{transform: 'translate(-350px,0)'}}
+    end={{transform: 'translate(270px, 0)'}}
+    >
+      <img src={JCVD} style={imageSize} alt="Jean Claude Van Damme"/>
+  </Animate>
+  <Card >
+    <CardBody >
+      <CardTitle ><Jumbotron>Welcome to the best Damme TapRoom in Town</Jumbotron></CardTitle>
+      
+    </CardBody>
+  </Card>
   </>
   )
 }

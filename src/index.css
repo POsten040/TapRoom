@@ -21,15 +21,14 @@ button.btn {
   box-shadow: 5px 5px 5px #614e5478;
 }
 
-#splashPageGreet {
-  font-family: Modak;
-  font-size: xx-large;
-  width: 1200px
-}
-
 @font-face {
   font-family: "Modak";
   src: local("Modak"),
     url("./fonts/Modak-Regular.ttf") format("truetype");
   font-weight: normal;
+}
+
+div.centered {
+  justify-self: center;
+  margin: 50px
 }

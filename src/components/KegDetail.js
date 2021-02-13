@@ -25,39 +25,42 @@ function KegDetail(props){
   }
   return (
     <>
-    <Card>
-      <Animate
-        play={true}
-        duration={1}
-        delay={.1}
-        start={{transform: 'translate(0,-200px)'}}
-        end={{transform: 'translate(0, 0)'}}
-      >
+    <div className="centered">
 
-        <CardHeader style={styleHead}>Product Detail</CardHeader>
-        <CardBody style={styleBody}>
-          <p>Hi My Name Is: {keg.name}</p>
-          <p>Brand: {keg.brand}</p>
-          <p>Price: {keg.price}</p>
-          <p>Flavour: {keg.flavor}</p>
-          <p>Pints Remaining: {keg.pintsLeft}</p>
-        </CardBody>
-        <CardFooter>
-          <Container>
-            <Row>
-              <Col>
-                <Button style={yellowButton} onClick={()=> onClickingDelete(keg.id)}>Delete This keg</Button>
-                <Button style={blueButton} onClick={()=> onClickingEdit(keg.id)}>Edit This Keg</Button>
-              </Col>
-              <Col>
-                <Button style={yellowButton} onClick={()=> onClickingSell(keg.id)}>Sell One Pint</Button>
-                <Button style={blueButton} onClick={()=> onClickingStock(keg.id)}>Stock One Pint</Button>
-              </Col>
-            </Row>
-          </Container>
-        </CardFooter>
-      </Animate>
-    </Card>
+      <Card>
+        <Animate
+          play={true}
+          duration={1}
+          delay={.1}
+          start={{transform: 'translate(0,-200px)'}}
+          end={{transform: 'translate(0, 0)'}}
+        >
+
+          <CardHeader style={styleHead}>Product Detail</CardHeader>
+          <CardBody style={styleBody}>
+            <p>Hi My Name Is: {keg.name}</p>
+            <p>Brand: {keg.brand}</p>
+            <p>Price: {keg.price}</p>
+            <p>Flavour: {keg.flavor}</p>
+            <p>Pints Remaining: {keg.pintsLeft}</p>
+          </CardBody>
+          <CardFooter>
+            <Container>
+              <Row>
+                <Col>
+                  <Button style={yellowButton} onClick={()=> onClickingDelete(keg.id)}>Delete This keg</Button>
+                  <Button style={blueButton} onClick={()=> onClickingEdit(keg.id)}>Edit This Keg</Button>
+                </Col>
+                <Col>
+                  <Button style={yellowButton} onClick={()=> onClickingSell(keg.id)}>Sell One Pint</Button>
+                  <Button style={blueButton} onClick={()=> onClickingStock(keg.id)}>Stock One Pint</Button>
+                </Col>
+              </Row>
+            </Container>
+          </CardFooter>
+        </Animate>
+      </Card>
+    </div>
     </>
     // <React.Fragment>
     //   <div style={styleComponent}>

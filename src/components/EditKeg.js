@@ -19,9 +19,12 @@ function EditKeg(props) {
   
   return (
     <>
-      <ReusableForm
-      formSubmissionHandler={handleEditKegFormSubmission}
-      buttonText="Update This Keg"/>
+      <div className="centered">
+
+        <ReusableForm
+        formSubmissionHandler={handleEditKegFormSubmission}
+        buttonText="Update This Keg"/>
+      </div>
     </>
   );
 }

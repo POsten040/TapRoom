@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 function Keg(props){
   return (
     <>
-      <div onClick = {() => props.whenKegClicked(props.id)}>
+      <div className="centered" onClick = {() => props.whenKegClicked(props.id)}>
         <h4>{props.name}</h4>
           <div className="inner-div">
             <p>{props.brand}</p>

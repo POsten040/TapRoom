@@ -1,13 +1,12 @@
-import SplashPage from './SplashPage';
 import KegControl from './KegControl';
 
 function App() {
-  const style = {
-    
-  }
+  
   return (
     <>
-      <KegControl />
+      <div className="centered">
+        <KegControl />
+      </div>
     </>
   );
 }
