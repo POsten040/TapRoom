@@ -24,7 +24,8 @@ function AddKeg(props) {
     <>
       <ReusableForm
         formSubmissionHandler={handleNewKegFormSubmission}
-        buttonText="Add this Keg"/>
+        buttonText="Add this Keg"
+        buttonStyle={props.buttonStyle}/>
     </>
   );
 }

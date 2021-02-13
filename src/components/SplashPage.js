@@ -1,15 +1,35 @@
 import React from 'react';
 import { CardImg } from 'react-bootstrap';
-import {Card, CardBody, CardTitle} from "reactstrap";
+import {Card, CardBody, CardTitle, Jumbotron} from "reactstrap";
+import { Animate } from 'react-simple-animate';
+import JCVD from '../assets/JCVD.jpg';
+import rainbow from '../assets/rainbow.png'
+import './../index.css';
 
 
 function SplashPage(){
+  const imageSize = {
+    width: 200,
+  }
   return (
+    
   <>
+  
     <Card>
-      <CardImg src="../assets/jeanClaude.gif" alt="Jean Claude Van Damme"/>
       <CardBody>
-        <CardTitle>Welcome to the best Damme TapRoom in Town</CardTitle>
+        <CardTitle id="splashPageGreet" ><Jumbotron>Welcome to the best Damme TapRoom in Town</Jumbotron></CardTitle>
+        <div styles={{ backgroundImage:`url(${rainbow})` }}>
+
+          <Animate
+          play={true}
+          duration={1.5}
+          delay={.1}
+          start={{transform: 'translate(0,0px)'}}
+          end={{transform: 'translate(900px, 0)'}}
+          >
+            <img src={JCVD} style={imageSize} alt="Jean Claude Van Damme"/>
+          </Animate>
+        </div>
       </CardBody>
     </Card>
   </>

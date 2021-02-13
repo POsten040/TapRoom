@@ -3,9 +3,14 @@ import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
 
 function ReusableForm(props) {
+  const formStyle= {
+    backgroundColor: "#33c4cc",
+    borderRadius: 10,
+    width: 600
+  }
   return (
     <>
-      <form onSubmit={props.formSubmissionHandler}>
+      <form style={formStyle} onSubmit={props.formSubmissionHandler}>
         <label>Keg Name</label>
         <input type="text" name="name" placeholder="Name"></input>
         <br />
@@ -25,7 +30,7 @@ function ReusableForm(props) {
         <label>Stock(in pints)</label>
         <input type="text" name="pintsLeft" defaultValue="120"></input>
         <br />
-        <Button id="formSubmitButton" className="btn" type="submit">{props.buttonText}</Button>
+        <Button style={props.buttonStyle} id="formSubmitButton" className="btn" type="submit">{props.buttonText}</Button>
       </form>
     </>
   );
