@@ -28,7 +28,7 @@ function ReusableForm(props) {
         <input type="string" name="flavor" placeholder="Flavor"></input>
         <br />
         <label>Stock(in pints)</label>
-        <input type="text" name="pintsLeft" defaultValue="120"></input>
+        <input type="number" name="pintsLeft" defaultValue="120"></input>
         <br />
         <Button style={props.buttonStyle} id="formSubmitButton" className="btn" type="submit">{props.buttonText}</Button>
       </form>
