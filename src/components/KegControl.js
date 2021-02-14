@@ -148,6 +148,9 @@ class KegControl extends React.Component {
     return Math.floor(Math.random() * 5);
   }  
   render() {
+    const blurOn = {
+      backdropFilter: "blur(20px)",
+    }
     const yellowButton = {
       backgroundColor: "#33c4cc",
     }
@@ -206,7 +209,6 @@ class KegControl extends React.Component {
     let currentState = null;
     let buttonText = null;
     if(this.state.splashPageVisible){
-      
       currentState = <SplashPage buttonStyle={buttonStyle}/>
       buttonText = "Get Started";
       buttonStyle=yellowButton;
@@ -245,25 +247,34 @@ class KegControl extends React.Component {
       buttonStyle = blueButton;
       backgroundImage = backgroundImageArray[this.randomNumber()];
     }
-    const JVCDImageSize = {
-      width: 200,
-    }
+    // style={[backgroundImage, blur]}
     return (
       <>
-      <div style={backgroundImage} >
-        <div className="centered">
-          {currentState}
-          <Animate
-              play={true}
-              duration={1}
-              delay={.1}
-              start={{transform: 'translate(0,-200px)'}}
-              end={{transform: 'translate(0, 0)'}}
-              >
-              <Button style={buttonStyle} className="btn" onClick={this.handleClick}>{buttonText}</Button>
-          </Animate>
+      <Animate
+        play={true}
+        duration={2}
+        delay={.3}
+        start={{filter: 'hue-rotate(90deg)'}}
+        end={{filter: 'hue-rotate(0deg)'}}>
+        <div id="initialBackground">
+          <div style={backgroundImage}>
+            <div id="focus">
+              <div className="centered">
+                {currentState}
+                <Animate
+                  play={true}
+                  duration={.6}
+                  delay={1.5}
+                  start={{transform: 'scale(0)'}}
+                  end={{transform: 'scale(1)'}}
+                  >
+                  <Button style={buttonStyle} className="btn" onClick={this.handleClick}>{buttonText}</Button>
+                </Animate>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </Animate>
       </>
     )
   }

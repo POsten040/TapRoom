@@ -24,26 +24,22 @@ function KegDetail(props){
   }
   return (
     <>
-    <div>
-      <Card>
-        <Animate
-          play={true}
-          duration={1}
-          delay={.1}
-          start={{transform: 'translate(0,-200px)'}}
-          end={{transform: 'translate(0, 0)'}}
+      <Animate
+        play={true}
+        duration={.5}
+        delay={.1}
+        start={{opacity: 0}}
+        end={{opacity: 100}}
         >
+      <Container>
+        <div>
           <CardHeader style={styleHead}>Product Detail</CardHeader>
           <CardBody style={styleBody}>
-            <p>Hi My Name Is: {keg.name}</p>
-            <p>Brand: {keg.brand}</p>
-            <p>Price: {keg.price}</p>
-            <p>Flavour: {keg.flavor}</p>
-            {console.log(keg.pintsLeft)}
-            <p>Pints Remaining: {keg.pintsLeft}</p>
-          </CardBody>
-          <CardFooter>
-            <Container>
+            <p className="detailsText">Name: <span className="detailsTextValue">{keg.name}</span></p>
+            <p className="detailsText">Brand: <span className="detailsTextValue">{keg.brand}</span></p>
+            <p className="detailsText">Price: <span className="detailsTextValue">${keg.price}</span></p>
+            <p className="detailsText">Flavour: <span className="detailsTextValue">{keg.flavor}</span></p>
+            <p className="detailsText">Pints Left: <span className="detailsTextValue">{keg.pintsLeft}</span></p>
               <Row>
                 <Col>
                   <Button style={yellowButton} onClick={()=> onClickingDelete(keg.id)}>Delete This keg</Button>
@@ -54,11 +50,10 @@ function KegDetail(props){
                   <Button style={blueButton} onClick={()=> onClickingStock(keg.id)}>Stock One Pint</Button>
                 </Col>
               </Row>
-            </Container>
-          </CardFooter>
-        </Animate>
-      </Card>
-    </div>
+          </CardBody>
+        </div>
+      </Container>
+    </Animate>
     </>
   );
 }

@@ -6,7 +6,7 @@ function Keg(props){
     <>
       <div onClick = {() => props.whenKegClicked(props.id)}>
         <h4>{props.name}</h4>
-          <div  className="inner-div">
+          <div className="hover">
             <p>{props.brand}</p>
             <p>{props.price}</p>
             <p>{props.flavor}</p>
