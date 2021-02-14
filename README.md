@@ -47,10 +47,11 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Technology Used
 
 * React
-* reactstrap
+* [reactstrap](https://reactstrap.github.io/)
+* [React Simple Animate](https://react-simple-animate.now.sh/)
 * Javascript
-* Babel
 * JSX
+* CSS
   
 ## Known Bugs
 2/12/21 - After adding a keg and then editing the 'pintsLeft' property of that keg using the 'Edit This Keg' button, then returning to the detail page and using the 'Sell Pint' or 'Stock Pint' buttons shows 'NaN' for 'pintsLeft' 
