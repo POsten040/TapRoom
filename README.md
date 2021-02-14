@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### A Project By Patrick Osten 
 
 ## **Project Description**
-A single page website built with React, allowing the owner of a Bar kep track of what kegs they have in stock, with full Create/Read/Update/Delete functionality. 
+A single page website built with React, allowing the owner of a Bar kep track of what kegs they have in stock, with full Create/Read/Update/Delete functionality, simple animations, and css objects.
 
 ## **Suggested Software**
 * Code Editor like [Visual Studio Code](https://code.visualstudio.com/)
