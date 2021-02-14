@@ -148,9 +148,6 @@ class KegControl extends React.Component {
     return Math.floor(Math.random() * 5);
   }  
   render() {
-    const blurOn = {
-      backdropFilter: "blur(20px)",
-    }
     const yellowButton = {
       backgroundColor: "#33c4cc",
     }
@@ -213,10 +210,6 @@ class KegControl extends React.Component {
       buttonText = "Get Started";
       buttonStyle=yellowButton;
     } else if (this.state.editing === true){
-      // console.log("FORM" + " : " + this.state.kegFormVisible);
-      // console.log("List" + " : " + this.state.kegListVisible);
-      // console.log("edit" + " : " + this.state.editing);
-      // console.log("selected" + " : " + this.state.selectedKeg);
       currentState = <EditKeg keg = {this.state.selectedKeg} buttonStyle={buttonStyle} onClickingEdit = {this.handleEditingKegInList} />
       buttonText = "Go Back";
       buttonStyle= greyButton;
@@ -247,7 +240,6 @@ class KegControl extends React.Component {
       buttonStyle = blueButton;
       backgroundImage = backgroundImageArray[this.randomNumber()];
     }
-    // style={[backgroundImage, blur]}
     return (
       <>
       <Animate
