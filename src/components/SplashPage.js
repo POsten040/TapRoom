@@ -28,6 +28,7 @@ function SplashPage(){
     justifySelf: "center",
     textShadow: '2px 2px 5px #2c2618'
   }
+  let s = 0
   return (
     
   <>
@@ -38,7 +39,7 @@ function SplashPage(){
           play={true}
           duration={1.5}
           delay={.1}
-          start={{transform: 'translate(-350px,0)'}}
+          start={{transform: `translate(-350px,${s})`}}
           end={{transform: 'translate(100px, 0)'}}
           >
             <img src={JCVD} style={JVCDImageSize} alt="Jean Claude Van Damme"/>

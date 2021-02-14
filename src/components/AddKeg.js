@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import ReusableForm from './ReusableForm';
 
 function AddKeg(props) {
-
   function handleNewKegFormSubmission(e) {
     e.preventDefault();
     props.onNewKegCreation({
@@ -16,8 +15,6 @@ function AddKeg(props) {
       id: v4()
     })
   }
-
-
   return (
     <>
     <ReusableForm

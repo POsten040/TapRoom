@@ -18,7 +18,6 @@ function KegList(props){
   return (
     <React.Fragment>
       <div style={formStyle}>
-
         <h1>Keg List</h1>
         {props.kegList.map((keg) =>
         <div className="hover" style={kegStyle}>

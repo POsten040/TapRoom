@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Card from 'react-bootstrap/Card';
 
 function Keg(props){
   return (
@@ -23,7 +22,7 @@ Keg.propTypes = {
   brand: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   flavor: PropTypes.string.isRequired,
-  pintsLeft: PropTypes.number
+  pintsLeft: PropTypes.number.isRequired
 };
 
 export default Keg;

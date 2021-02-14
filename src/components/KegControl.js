@@ -12,6 +12,7 @@ import nicebar3 from '../assets/nicebar3.jpg';
 import nicebar4 from '../assets/nicebar4.jpg';
 import nicebar5 from '../assets/nicebar5.jpg';
 import nicebar6 from '../assets/nicebar6.jpg';
+import JCVD from '../assets/JCVD.jpg';
 
 class KegControl extends React.Component {
   constructor(props){
@@ -81,6 +82,7 @@ class KegControl extends React.Component {
   }
   handleEditClick = () => {
     this.setState({editing: true});
+    console.log(this.state.selectedKeg)
   }
   handleEditingKegInList = (kegToEdit)=> {
     const editedMasterKegList = this.state.masterKegList
@@ -116,7 +118,6 @@ class KegControl extends React.Component {
       productFormVisible: true 
     });
   }
-
   handleSellClick = (id) => {
     let kegToSell = this.state.masterKegList.filter(
       keg => keg.id === id)[0];
@@ -145,8 +146,7 @@ class KegControl extends React.Component {
   }
   randomNumber(){
     return Math.floor(Math.random() * 5);
-  }
-  
+  }  
   render() {
     const yellowButton = {
       backgroundColor: "#33c4cc",
@@ -228,7 +228,7 @@ class KegControl extends React.Component {
       backgroundImage = backgroundImageArray[this.randomNumber()];
     } else if(this.state.kegFormVisible){
       
-      currentState = <AddKeg onNewKegCreation={this.handleAddingNewKegToList} buttonStyle={buttonStyle}/>
+      currentState = <AddKeg onNewKegCreation={this.handleAddingNewKegToList} buttonStyle={buttonStyle}/> 
       buttonText = "View Keg List";
       buttonStyle=blueButton;
       backgroundImage = backgroundImageArray[this.randomNumber()];
@@ -244,6 +244,9 @@ class KegControl extends React.Component {
       buttonText = "Add Another Keg";
       buttonStyle = blueButton;
       backgroundImage = backgroundImageArray[this.randomNumber()];
+    }
+    const JVCDImageSize = {
+      width: 200,
     }
     return (
       <>

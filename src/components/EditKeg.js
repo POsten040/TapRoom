@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import ReusableForm from './ReusableForm';
 
 function EditKeg(props) {
-
   function handleEditKegFormSubmission(e) {
     e.preventDefault();
     props.onClickingEdit({
@@ -16,10 +15,10 @@ function EditKeg(props) {
       id: v4()
     })
   }
-  
   return (
     <>
       <ReusableForm
+      keg = {props.keg}
       formSubmissionHandler={handleEditKegFormSubmission}
       buttonText="Update This Keg"
       buttonStyle={props.buttonStyle}/>

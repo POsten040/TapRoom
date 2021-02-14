@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { Animate } from "react-simple-animate";
 import { Button, Card, CardHeader, CardBody, CardFooter, Container, Row, Col } from 'reactstrap';
 
-
 function KegDetail(props){
   const { keg, onClickingDelete, onClickingEdit, onClickingSell, onClickingStock } = props;
   const styleBody = {
@@ -40,6 +39,7 @@ function KegDetail(props){
             <p>Brand: {keg.brand}</p>
             <p>Price: {keg.price}</p>
             <p>Flavour: {keg.flavor}</p>
+            {console.log(keg.pintsLeft)}
             <p>Pints Remaining: {keg.pintsLeft}</p>
           </CardBody>
           <CardFooter>

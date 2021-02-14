@@ -7,12 +7,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 button.btn {
   width: 200px;
   margin-left: 10px;
@@ -40,4 +38,8 @@ div.hover :hover {
   color: rgb(31, 27, 23);
   background-color: rgb(95, 255, 122);
   border-radius: 10px;
+}
+
+.animatedImageShowing {
+  visibility: hidden;
 }
