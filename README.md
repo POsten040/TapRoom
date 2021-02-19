@@ -57,6 +57,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
   
 ## Known Bugs
 2/12/21 - After adding a keg and then editing the 'pintsLeft' property of that keg using the 'Edit This Keg' button, then returning to the detail page and using the 'Sell Pint' or 'Stock Pint' buttons shows 'NaN' for 'pintsLeft' 
+  - fixed 2/19/2021
 
 
 ## Support and contact details
