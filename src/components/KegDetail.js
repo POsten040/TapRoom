@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Animate } from "react-simple-animate";
-import { Button, Card, CardHeader, CardBody, CardFooter, Container, Row, Col } from 'reactstrap';
+import { Button, CardHeader, CardBody, Container, Row, Col } from 'reactstrap';
 
 function KegDetail(props){
   const { keg, onClickingDelete, onClickingEdit, onClickingSell, onClickingStock } = props;

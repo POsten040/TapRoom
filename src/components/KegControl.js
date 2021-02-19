@@ -82,7 +82,6 @@ class KegControl extends React.Component {
   }
   handleEditClick = () => {
     this.setState({editing: true});
-    console.log(this.state.selectedKeg)
   }
   handleEditingKegInList = (kegToEdit)=> {
     const editedMasterKegList = this.state.masterKegList
@@ -121,9 +120,7 @@ class KegControl extends React.Component {
   handleSellClick = (id) => {
     let kegToSell = this.state.masterKegList.filter(
       keg => keg.id === id)[0];
-      console.log(kegToSell.pintsLeft)
       if(kegToSell.pintsLeft <= 0){
-        console.log("sold out")
         alert("All Sold Out Boss");
       } else {
       kegToSell.pintsLeft = kegToSell.pintsLeft -1;
@@ -215,26 +212,21 @@ class KegControl extends React.Component {
       buttonStyle= greyButton;
       backgroundImage = backgroundImageArray[this.randomNumber()];
     } else if(this.state.selectedKeg != null) {
-    
-      
       currentState = <KegDetail keg = {this.state.selectedKeg}  onClickingStock={this.handleStockClick} onClickingSell={this.handleSellClick} onClickingDelete = {this.handleDeleteClick} onClickingEdit = {this.handleEditClick} />
       buttonText= "View Keg List";
       buttonStyle=blueButton;
       backgroundImage = backgroundImageArray[this.randomNumber()];
     } else if(this.state.kegFormVisible){
-      
       currentState = <AddKeg onNewKegCreation={this.handleAddingNewKegToList} buttonStyle={buttonStyle}/> 
       buttonText = "View Keg List";
       buttonStyle=blueButton;
       backgroundImage = backgroundImageArray[this.randomNumber()];
     } else if(this.state.kegListVisible){
-      
       currentState = <KegList kegList={this.state.masterKegList}  onKegSelection={this.handleChangingSelectedKeg}/>
       buttonText = "Add Another Keg";
       buttonStyle = blueButton;
       backgroundImage = backgroundImageArray[this.randomNumber()];
     } else {
-      
       currentState = <KegList kegList={this.state.masterKegList}  onKegSelection={this.handleChangingSelectedKeg}/>
       buttonText = "Add Another Keg";
       buttonStyle = blueButton;

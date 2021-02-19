@@ -11,7 +11,7 @@ function EditKeg(props) {
       brand: e.target.brand.value,
       price: e.target.price.value,
       flavor: e.target.flavor.value,
-      pintsLest: parseInt(e.target.pintsLeft.value),
+      pintsLeft: parseInt(e.target.pintsLeft.value),
       id: e.target.id.value
     })
   }

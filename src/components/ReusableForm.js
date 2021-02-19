@@ -12,13 +12,25 @@ function ReusableForm(props) {
   const greenButton = {
     backgroundColor: '#2fd05a',
   }
+  let kegToEdit;
+  if(props.keg === undefined){
+    kegToEdit = {
+      name: null,
+      brand: null,
+      price: null,
+      flavor: null,
+      pintsLeft: null
+    };
+  } else {
+    kegToEdit = props.keg;
+  }
   return (
     <>
       <form style={formStyle} onSubmit={props.formSubmissionHandler}>
         <label>Keg Name</label>
-        <input type="text" name="name" placeholder="Name"></input>
+        <input defaultValue={kegToEdit.name}  type="text" name="name" placeholder="Name"></input>
         <br />
-        <select defaultValue={"DEFAULT"} name="brand">
+        <select defaultValue={kegToEdit.brand} name="brand">
           <option value="DEFAULT" disabled> -- choose brand --</option>
           <option value="BrewMaster">BrewMaster</option>
           <option value="MasterBrew">MasterBrew</option>
@@ -26,14 +38,15 @@ function ReusableForm(props) {
         </select>
         <br />
         <label>Price</label>
-        <input type="number" name="price" placeholder="Price"></input>
+        <input defaultValue={kegToEdit.price} type="number" name="price" placeholder="Price"></input>
         <br />
-        <label>Price</label>
-        <input type="string" name="flavor" placeholder="Flavor"></input>
+        <label>Flavor</label>
+        <input defaultValue={kegToEdit.flavor} type="string" name="flavor" placeholder="Flavor"></input>
         <br />
         <label>Stock(in pints)</label>
-        <input type="number" name="pintsLeft" defaultValue="120"></input>
+        <input defaultValue={kegToEdit.pintsLeft} type="number" name="pintsLeft"></input>
         <br />
+        <input type="hidden" name="id" value={kegToEdit.id}></input>
         <Button style={greenButton} id="formSubmitButton" className="btn" type="submit">{props.buttonText}</Button>
       </form>
     </>
