@@ -13,7 +13,7 @@ A single page website built with React, allowing the owner of a Bar kep track of
 * Code Editor like [Visual Studio Code](https://code.visualstudio.com/)
 
 ## **Visual Diagram**
-![Visual Diagram](./ReadmeAssets/Taproom-Diagram.PNG)
+![Visual Diagram](./ReadmeAssets/TapRoom-Diagram.PNG)
 
 ## **Installation Instructions**
 1. Clone project from Github or download zip file and extract all files to your local machine. 
